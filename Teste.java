@@ -7,7 +7,7 @@ public class Teste {
 	public static void main(String[] args) {
 		int quantidade;
 		String resposta;
-            Scanner input = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
                 Carro carro = new Carro();
                 ArrayList<Carro> EstoqueCarros = new ArrayList<>();
                 //ArrayList<Motocicleta> EstoqueMotos = new ArrayList<>();              

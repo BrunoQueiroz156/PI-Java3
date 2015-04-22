@@ -82,9 +82,9 @@ public class Carro {
 	   	novo.setTipo(input.next());
 	   	System.out.println("Digite o Câmbio");
 	   	novo.setCambio(input.next());
-	   	System.out.println("Digite a Motorização(float)");
+	   	System.out.println("Digite a Motorização(ponto flutuante)");
 	   	novo.setMotorizacao(input.nextFloat());
-	   	System.out.println("Digite o Preço(float)");
+	   	System.out.println("Digite o Preço(ponto flutuante)");
 	   	novo.setPreco(input.nextFloat());
 	   	return novo;
 	   }
@@ -92,37 +92,37 @@ public class Carro {
 	   public Carro listarEstoqueCarro(String Chassi,String Montadora,String Modelo,String Tipo,String Câmbio,float Motorização,float Preço,ArrayList<Carro> EstoqueCarros){
 		 Carro listarCarros = new Carro();
 		 for(Carro MostrarEstoque: EstoqueCarros){
-			 System.out.println("Chassi: "+MostrarEstoque.getChassi());
+			    System.out.println("Chassi: "+MostrarEstoque.getChassi());
 		    	System.out.println("Montadora: "+MostrarEstoque.getMontadora());
 		    	System.out.println("Modelo: "+MostrarEstoque.getModelo());
 		    	System.out.println("Tipo: "+MostrarEstoque.getTipo());
 		    	System.out.println("Câmbio: "+MostrarEstoque.getCambio());
 		    	System.out.println("Motorização: "+MostrarEstoque.getMotorizacao());
-		    	System.out.println("Preço: "+MostrarEstoque.getPreco());
+		    	System.out.println("Preï¿½o: "+MostrarEstoque.getPreco());
 		 }
 		 return listarCarros;
 	   }
 	   
-	   public static Carro PesquisarCarro(String Chassi,String Montadora,String Modelo,String Tipo,String Câmbio,float Motorização,float Preço,ArrayList<Carro> EstoqueCarros){
+	   public Carro PesquisarCarro(String _Chassi,String _Montadora,String _Modelo,String _Tipo,String _Câmbio,float _Motorização,float _Preço,ArrayList<Carro> _EstoqueCarros){
 		 Carro pesquisarCarro = new Carro();
 		    System.out.println("Digite o Chassi");
-		    pesquisarCarro.setChassi(input.next());
+		    _Chassi = input.next();
 		   	System.out.println("Digite a Montadora");
-		   	pesquisarCarro.setMontadora(input.next());
+		   	_Montadora = input.next();
 		   	System.out.println("Digite o Modelo");
-		   	pesquisarCarro.setModelo(input.next());
+		   	_Modelo = input.next();
 		   	System.out.println("Digite o Tipo");
-		   	pesquisarCarro.setTipo(input.next());
+		   	_Tipo = input.next();
 		   	System.out.println("Digite o Câmbio");
-		   	pesquisarCarro.setCambio(input.next());
-		   	System.out.println("Digite a Motorização");
-		   	pesquisarCarro.setMotorizacao(input.nextFloat());
-		   	System.out.println("Digite o Preço");
-		   	pesquisarCarro.setPreco(input.nextFloat());
+		   	_Câmbio = input.next();
+		   	System.out.println("Digite a Motorização(float)");
+		   	_Motorização = input.nextFloat();
+		   	System.out.println("Digite o Preço(float)");
+		   	_Preço = input.nextFloat();
 		   	
-		 for(Carro MostrarEstoque: EstoqueCarros){
-			 if(Chassi == MostrarEstoque.getChassi() && Montadora == MostrarEstoque.getMontadora() && Modelo == MostrarEstoque.getModelo() && Tipo == MostrarEstoque.getTipo() && Câmbio == MostrarEstoque.getCambio() && Motorização == MostrarEstoque.getMotorizacao() && Preço == MostrarEstoque.getPreco()){
-				 System.out.println("Esse Carro existe,pois acabou de achá-lo");
+		 for(Carro MostrarEstoque: _EstoqueCarros){
+			 if((_Chassi).equals(MostrarEstoque.getChassi()) && (_Montadora).equals(MostrarEstoque.getMontadora()) && (_Modelo).equals(MostrarEstoque.getModelo()) && (_Tipo).equals(MostrarEstoque.getTipo()) && (_Câmbio).equals(MostrarEstoque.getCambio()) && (_Motorização) == (MostrarEstoque.getMotorizacao()) && (_Preço) == MostrarEstoque.getPreco()){
+				 System.out.println("Esse Carro existe,pois acabou de acha-lo");
 				 return pesquisarCarro;
 			 }
 		 }
@@ -130,14 +130,14 @@ public class Carro {
 		 return pesquisarCarro;
 	   }
 	   
-	   public static Carro BuscarCarro(String Chassi,ArrayList<Carro> EstoqueCarros){
-		   Carro buscarcarro = new Carro();
+	   public Carro BuscarCarro(String Chassi,ArrayList<Carro> EstoqueCarros){
+		   Carro buscarcarro = new Carro(); //eu criei essa instância para usar todas as váriáveis do carro e para poder retornar algo para o método
 		   System.out.println("Digite o Chassi que procura");
 		   buscarcarro.setChassi(input.next());
-		 for(Carro MostrarEstoque: EstoqueCarros){
-			 if(Chassi == MostrarEstoque.getChassi()){
+		   for(Carro MostrarEstoque: EstoqueCarros){ //loop para rodar toda a arraylist de EstoqueCarros 
+			 if(Chassi == MostrarEstoque.getChassi()){ //comparar o chassi digitado pelo chassi de cada indice da arraylist
 				 System.out.println("Achou o Carro com o Chassi");
-				 return buscarcarro;
+				 return buscarcarro; 
 			 }
 		 }
 		System.out.println("Não achou o Carro com o Chassi");

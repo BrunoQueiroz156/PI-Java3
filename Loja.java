@@ -1,11 +1,11 @@
 package ProjetodeLoja;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Loja {
-	Scanner input = new Scanner(System.in);
-	Carro peçascarro = new Carro();
 	String Endereço;
 	String nome;
+	static ArrayList<Carro> EstoqueCarros = new ArrayList<>();
+    static ArrayList<Motocicleta> EstoqueMotos = new ArrayList<>(); 
     
 }

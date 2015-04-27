@@ -1,7 +1,7 @@
 package ProjetodeLoja;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.ArrayList; //para eu poder passar arraylist(s) como parâmetro para os métodos
+import java.util.Scanner; //nem preciso explicar o pq,né?
 
 public class Carro {
 	static Scanner input = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class Carro {
 		}
 	   
 	   
-	   public Carro adicionarCarro(String Chassi,String Montadora,String Modelo,String Tipo,String Cambio,float Motorizacao,float Preco){
+	   public static Carro adicionarCarro(String Chassi,String Montadora,String Modelo,String Tipo,String Cambio,float Motorizacao,float Preco){ //método para adicionar o carro na instância do tipo Carro,e eu usei static para o método ser acessado por qualquer classe sem precisar instânciá-lo em todas as classes que eu vou utilizar,e com isso economizo área na Memória Principal
 	   	Carro novo = new Carro();
 	   	System.out.println("Digite o Chassi");
 	    novo.setChassi(input.next());
@@ -89,7 +89,7 @@ public class Carro {
 	   	return novo;
 	   }
 	   
-	   public Carro listarEstoqueCarro(String Chassi,String Montadora,String Modelo,String Tipo,String Câmbio,float Motorização,float Preço,ArrayList<Carro> EstoqueCarros){
+	   public static Carro listarEstoqueCarro(ArrayList<Carro> EstoqueCarros){
 		 Carro listarCarros = new Carro();
 		 for(Carro MostrarEstoque: EstoqueCarros){
 			    System.out.println("Chassi: "+MostrarEstoque.getChassi());
@@ -103,7 +103,7 @@ public class Carro {
 		 return listarCarros;
 	   }
 	   
-	   public Carro PesquisarCarro(String _Chassi,String _Montadora,String _Modelo,String _Tipo,String _Câmbio,float _Motorização,float _Preço,ArrayList<Carro> _EstoqueCarros){
+	   public static Carro PesquisarCarro(String _Chassi,String _Montadora,String _Modelo,String _Tipo,String _Câmbio,float _Motorização,float _Preço,ArrayList<Carro> _EstoqueCarros){ // método para pesquisar carro com o static para acessá-lo de qualquer classe
 		 Carro pesquisarCarro = new Carro();
 		    System.out.println("Digite o Chassi");
 		    _Chassi = input.next();
@@ -121,7 +121,7 @@ public class Carro {
 		   	_Preço = input.nextFloat();
 		   	
 		 for(Carro MostrarEstoque: _EstoqueCarros){
-			 if((_Chassi).equals(MostrarEstoque.getChassi()) && (_Montadora).equals(MostrarEstoque.getMontadora()) && (_Modelo).equals(MostrarEstoque.getModelo()) && (_Tipo).equals(MostrarEstoque.getTipo()) && (_Câmbio).equals(MostrarEstoque.getCambio()) && (_Motorização) == (MostrarEstoque.getMotorizacao()) && (_Preço) == MostrarEstoque.getPreco()){
+			 if(_Chassi.equals(MostrarEstoque.getChassi()) && _Montadora.equals(MostrarEstoque.getMontadora()) && _Modelo.equals(MostrarEstoque.getModelo()) && _Tipo.equals(MostrarEstoque.getTipo()) && _Câmbio.equals(MostrarEstoque.getCambio()) && _Motorização == MostrarEstoque.getMotorizacao() && _Preço == MostrarEstoque.getPreco()){
 				 System.out.println("Esse Carro existe,pois acabou de acha-lo");
 				 return pesquisarCarro;
 			 }
@@ -130,12 +130,12 @@ public class Carro {
 		 return pesquisarCarro;
 	   }
 	   
-	   public Carro BuscarCarro(String Chassi,ArrayList<Carro> EstoqueCarros){
+	   public static Carro BuscarCarro(String Chassi,ArrayList<Carro> EstoqueCarros){
 		   Carro buscarcarro = new Carro(); //eu criei essa instância para usar todas as váriáveis do carro e para poder retornar algo para o método
 		   System.out.println("Digite o Chassi que procura");
 		   buscarcarro.setChassi(input.next());
 		   for(Carro MostrarEstoque: EstoqueCarros){ //loop para rodar toda a arraylist de EstoqueCarros 
-			 if(Chassi == MostrarEstoque.getChassi()){ //comparar o chassi digitado pelo chassi de cada indice da arraylist
+			 if(Chassi.equals(MostrarEstoque.getChassi())){ //comparar o chassi digitado pelo chassi de cada indice da arraylist
 				 System.out.println("Achou o Carro com o Chassi");
 				 return buscarcarro; 
 			 }
